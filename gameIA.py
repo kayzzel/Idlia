@@ -90,7 +90,7 @@ def ia_train(p):
         player.gameCondition = None  # remise a zéro
         time = 0  # remise a zéro
         player1.start()  # remise a zéro
-        while player.gameCondition == None and 40 >= time:
+        while player.gameCondition == None and 100 >= time:
             action_n = choix_action()
             player1.x = player.x  # garde le précédant état
             player1.y = player.y  # garde le précédant état

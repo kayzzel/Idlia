@@ -14,6 +14,7 @@ class Tyr():
        self.map = 0
        self.unlockedMap = 0
        self.money = 0
+       self.moneyCount = True
        # [name, max, resolution, level, + by upgrade, nbr or plus par level,curent value]
        self.aiVar = [
                     ['alpha', 0.2, 0.01, 0, 0.2, 200, 0],

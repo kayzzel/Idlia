@@ -15,15 +15,6 @@ maps =[
         ['sky','sky','sky','floor','sky','sky','sky'],
         ['sky','sky','floor','sky','sky','sky','sky'],
         ['start','sky','sky','sky','sky','sky','sky'],
-        ['floor','floor','sky','sky','sky','sky','sky']
-        ],
-        [
-        ['sky','sky','sky','sky','sky','sky','door'],
-        ['sky','sky','sky','sky','sky','floor','floor'],
-        ['sky','sky','sky','sky','floor','sky','sky'],
-        ['sky','sky','sky','floor','sky','sky','sky'],
-        ['sky','sky','floor','sky','sky','sky','sky'],
-        ['start','sky','sky','sky','sky','sky','sky'],
         ['floor','floor','floor','floor','sky','sky','sky']
         ],
         [
@@ -35,4 +26,16 @@ maps =[
         ['start','sky','sky','void','sky','sky','sky'],
         ['floor','floor','floor','floor','sky','floor','floor']
         ],
+        [
+        ['sky','sky','sky','sky','sky','sky','door','sky','sky','sky'],
+        ['sky','sky','sky','sky','sky','sky','floor','floor','sky','sky'],
+        ['sky','sky','sky','sky','sky','sky','sky','sky','floor','sky'],
+        ['sky','sky','sky','sky','sky','sky','sky','sky','sky','floor'],
+        ['sky','sky','sky','sky','sky','sky','sky','sky','sky','sky'],
+        ['sky','sky','sky','sky','floor','floor','sky','sky','sky','sky'],
+        ['sky','sky','sky','floor','sky','sky','sky','sky','sky','floor'],
+        ['sky','sky','floor','sky','sky','floor','floor','sky','sky','sky'],
+        ['start','sky','sky','sky','sky','sky','sky','sky','sky','sky'],
+        ['floor','floor','floor','floor','sky','sky','sky','floor','floor','floor']
+        ]
     ]
