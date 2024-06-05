@@ -18,6 +18,15 @@ maps =[
         ['floor','floor','sky','sky','sky','sky','sky']
         ],
         [
+        ['sky','sky','sky','sky','sky','sky','door'],
+        ['sky','sky','sky','sky','sky','floor','floor'],
+        ['sky','sky','sky','sky','floor','sky','sky'],
+        ['sky','sky','sky','floor','sky','sky','sky'],
+        ['sky','sky','floor','sky','sky','sky','sky'],
+        ['start','sky','sky','sky','sky','sky','sky'],
+        ['floor','floor','floor','floor','sky','sky','sky']
+        ],
+        [
         ['sky','sky','sky','door','sky','sky','sky'],
         ['sky','floor','sky','floor','floor', 'sky','sky'],
         ['sky','sky','sky','sky','sky','sky','sky'],

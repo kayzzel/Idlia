@@ -48,7 +48,7 @@ def mouvementGraph():
     
     if player.gameCondition == True:
         unlockLevel()
-        player.money += 1 * (3 * (player.map + 1)) * 4
+        player.money += 1.5 * (player.map + 1)
         moneyLabel.config(text=player.money)
         player.start()
         goGraph(player, playerAvatar)

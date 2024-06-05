@@ -1,26 +1,40 @@
 import game
+import gameIA
 import frame_plus
 import tkinter as tk
 from mouv import Tyr
 
 def funcSlider(v, i):
-    print(v)
-    player.aiVar[i][2] = v
+    player.aiVar[i][6] = float(v)
     print(player.aiVar)
+    
+def upSlider(i):
+    if player.money >=2 ** player.aiVar[i][3] * player.aiVar[i][5]:
+        player.money -= player.aiVar[i][3] * player.aiVar[i][5]
+        player.aiVar[i][3] += 1
+        player.aiVar[i][1] += player.aiVar[i][4]
+        sl[i].config(to=player.aiVar[i][1])
+        up[i].config(text=f"upgrade level {int(player.aiVar[i][3] + 1)} ({2 ** player.aiVar[i][3] * player.aiVar[i][5]} coin)")
+        moneyLabel.config(text=player.money)
+        print(player.aiVar)
 
 def fillSlider():
-    global moneyLabel 
+    global moneyLabel, sl, bu, up
     
     t = []
-    s = []
+    sl = []
+    bu = []
+    up = []
     
     for i in range(0,5):
         b = tk.Button(top_left, text=f" {player.aiVar[i][0]}", command = quit)
         b.configure(width = 10)
         b.place(x=10, y=10 + (i+1)*55)
-        label = tk.Label(top_left, text=f"upgrade number {i+1}")
-        label.configure(width = 20)
+        bu.append(b)
+        label = tk.Label(top_left, text=f"upgrade level {int(player.aiVar[i][3] + 1)} ({2 ** player.aiVar[i][3] * player.aiVar[i][5]} coin)")
+        label.configure(width = 22)
         label.place(x=130, y=15 + (i+1)*55)
+        up.append(label)
         def slider_changed(value):  
             v=value
             
@@ -35,15 +49,21 @@ def fillSlider():
             variable=current_value,
             command=slider_changed
         )
-        s.append(slider)
+        sl.append(slider)
         slider.configure(width = 10)
         slider.place(x=300, y=5 + (i+1)*55)
+
+    bu[0].configure(command=lambda : upSlider(0))
+    bu[1].configure(command=lambda : upSlider(1))
+    bu[2].configure(command=lambda : upSlider(2))
+    bu[3].configure(command=lambda : upSlider(3))
+    bu[4].configure(command=lambda : upSlider(4))
         
-    s[0].configure(command=lambda value: funcSlider(value, 0))
-    s[1].configure(command=lambda value: funcSlider(value, 1))
-    s[2].configure(command=lambda value: funcSlider(value, 2))
-    s[3].configure(command=lambda value: funcSlider(value, 3))
-    s[4].configure(command=lambda value: funcSlider(value, 4))
+    sl[0].configure(command=lambda value: funcSlider(value, 0))
+    sl[1].configure(command=lambda value: funcSlider(value, 1))
+    sl[2].configure(command=lambda value: funcSlider(value, 2))
+    sl[3].configure(command=lambda value: funcSlider(value, 3))
+    sl[4].configure(command=lambda value: funcSlider(value, 4))
     
     moneyLabel = tk.Label(top_left, text=player.money)
     moneyLabel.place(x=10, y=10)
@@ -61,6 +81,10 @@ def fill():
     bouton_next = tk.Button(bot_left, text='next level', command=game.nextMap)
     bouton_next.configure(width = 10)
     bouton_next_win = bot_left.create_window(10, 100, anchor='nw', window=bouton_next)
+    
+    bouton_train = tk.Button(bot_left, text='train', command= lambda : exec("gameIA.ia_train(player)\nmoneyLabel.config(text=player.money)"))
+    bouton_train.configure(width = 10)
+    bouton_train_win = bot_left.create_window(10, 145, anchor='nw', window=bouton_train)
     
         
 def start():

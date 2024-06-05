@@ -14,19 +14,20 @@ class Tyr():
        self.map = 0
        self.unlockedMap = 0
        self.money = 0
+       # [name, max, resolution, level, + by upgrade, nbr or plus par level,curent value]
        self.aiVar = [
-                    ['alpha', 1, 0.01, 0],
-                    ['gamma', 1, 0.01, 0],
-                    ['tiks', 100, 1, 0, 0],
-                    ['epsilon', 1, 0.01, 0],
-                    ['reward', 10, 1, 0]
+                    ['alpha', 0.2, 0.01, 0, 0.2, 200, 0],
+                    ['gamma', 0.2, 0.01, 0, 0.2, 200, 0],
+                    ['tiks', 1, 1, 0, 1, 500, 0],
+                    ['epsilon', 0.01, 0.01, 0, 0.01, 400, 0],
+                    ['reward', 1, 0.1, 0, 1, 300, 0]
                     ]
        
     
     def start(self):
         '''place Tyr at the start of the board'''
         self.gameCondition = None
-        self.money += 1 * (3 * (self.map + 1))
+        self.money += 0.5 * (1.5 * (self.map + 1))
         for i in range(len(self.board)):
             for j in range(len(self.board[0])):
                 if self.board[i][j] == 'start':
@@ -41,7 +42,6 @@ class Tyr():
             self.gameCondition = False
         elif self.y == len(self.board)-1:
             self.gameCondition = False
-        print(self.gameCondition)
         
 
     def goRight(self):
